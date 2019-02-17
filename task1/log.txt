@@ -1,0 +1,11 @@
+commit 0318be02abbbcc55e678f52c384c355433658368 (HEAD -> master)
+Author: Pavel Nistsiuk <nistp22@gmail.com>
+Date:   Sun Feb 17 16:11:37 2019 +0300
+
+    added status
+
+commit f0282866bb7dce6ad382d15caf18cb361c673c56
+Author: Pavel Nistsiuk <nistp22@gmail.com>
+Date:   Sun Feb 17 16:07:46 2019 +0300
+
+    add .gitignore
