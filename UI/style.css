@@ -1,0 +1,132 @@
+html { overflow-y: scroll; overflow-x:hidden; }
+body{margin: 0px;}
+.zerg_pic{
+width: 300px;
+height: 50px;
+}
+.header {
+  background-color: rgb(100, 252, 255);
+  height: 100px;
+  position: fixed;
+  width: 1920px;
+  margin: 0px;
+   z-index: 200;
+}
+.header, .footer {
+  z-index: 200;
+  position: fixed;
+}
+.headerLogo {
+  position: fixed;
+  height: 100px;
+  width: 100px;
+  left: 15px;
+  z-index: 200;
+}
+.pageName {
+  position: fixed;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  font-size: 25px;
+  left: 50px;
+    z-index: 200;
+}
+
+.userName {
+  position: fixed;
+  height: 36px;
+  text-align: right;
+  right: 100px;
+  font-size: 25px;
+    z-index: 200;
+}
+.userAvatar {
+  position: fixed;
+  margin: 20px;
+  height: 60px;
+  width: 60px;
+  right: 10px;
+    z-index: 200;
+}
+
+.PictureBlock{
+    position: relative;
+    top: 100px;
+    height: 500px;
+    padding: 100px;
+    word-wrap: break-word;
+}
+.imageInBlock{
+    width: 400px;
+    height: 400px;
+    padding: 0;
+    margin: 10px;
+    float: left;
+}
+.DescriptionInBlock{
+    left: 400px;
+    position: fixed;
+}
+.textInBlock{
+    word-wrap: break-word;
+    width: 1000px;
+}
+a.Like {
+
+	user-select: none; /* Убираем текстовое выделение */
+	text-decoration: none;	/* Убираем подчеркивание */
+	outline: none; /* Убираем контур вокруг ссылки */
+	background-color: rgb(100, 252, 255); /* Цвет фона */
+	padding: 1em 2em; /* Отступ от текста до рамки */
+	}
+	a.Like:active {
+	background-color: rgb(100, 0, 255); /* Цвет кнопки при нажатии */
+	}
+	a.Like:hover {
+	background-color: rgb(100, 0, 255); /* Цвет кнопки при наведении курсора */
+	}
+a.More {
+    position: relative;
+    left: 100px;
+    bottom: 50px;
+    user-select: none; /* Убираем текстовое выделение */
+    text-decoration: none;	/* Убираем подчеркивание */
+    outline: none; /* Убираем контур вокруг ссылки */
+    background-color: rgb(100, 252, 255); /* Цвет фона */
+    padding: 1em 2em; /* Отступ от текста до рамки */
+    }
+    a.More:active {
+    background-color: rgb(100, 0, 255); /* Цвет кнопки при нажатии */
+    }
+    a.More:hover {
+    background-color: rgb(100, 0, 255); /* Цвет кнопки при наведении курсора */
+}
+a.loadButton {
+    z-index: 201;
+    position: fixed;
+    right: 250px;
+    top: 25px;
+    user-select: none; /* Убираем текстовое выделение */
+    text-decoration: none;	/* Убираем подчеркивание */
+    outline: none; /* Убираем контур вокруг ссылки */
+    background-color: rgb(255, 255, 255); /* Цвет фона */
+    padding: 1em 2em; /* Отступ от текста до рамки */
+    }
+    a.loadButton:active {
+    background-color: rgb(255, 0, 0); /* Цвет кнопки при нажатии */
+    }
+    a.loadButton:hover {
+    background-color: rgb(255, 0, 0); /* Цвет кнопки при наведении курсора */
+}
+.footer {
+  position: relative;
+  bottom: 0px;
+  width: 500px;
+  background-color: white;
+  height: 15px;
+  left:10px;
+}
+.footerText{
+  font-size: 12px;
+}
