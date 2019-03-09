@@ -64,15 +64,11 @@ height: 50px;
     margin: 10px;
     float: left;
 }
-.DescriptionInBlock{
-    left: 400px;
-    position: fixed;
-}
 .textInBlock{
     word-wrap: break-word;
     width: 1000px;
 }
-a.Like {
+button.Like {
 
 	user-select: none; /* Убираем текстовое выделение */
 	text-decoration: none;	/* Убираем подчеркивание */
@@ -80,13 +76,13 @@ a.Like {
 	background-color: rgb(100, 252, 255); /* Цвет фона */
 	padding: 1em 2em; /* Отступ от текста до рамки */
 	}
-	a.Like:active {
+	button.Like:active {
 	background-color: rgb(100, 0, 255); /* Цвет кнопки при нажатии */
 	}
-	a.Like:hover {
+	button.Like:hover {
 	background-color: rgb(100, 0, 255); /* Цвет кнопки при наведении курсора */
 	}
-a.More {
+button.More {
     position: relative;
     left: 100px;
     bottom: 50px;
@@ -96,13 +92,13 @@ a.More {
     background-color: rgb(100, 252, 255); /* Цвет фона */
     padding: 1em 2em; /* Отступ от текста до рамки */
     }
-    a.More:active {
+    button.More:active {
     background-color: rgb(100, 0, 255); /* Цвет кнопки при нажатии */
     }
-    a.More:hover {
+    button.More:hover {
     background-color: rgb(100, 0, 255); /* Цвет кнопки при наведении курсора */
 }
-a.loadButton {
+button.loadButton {
     z-index: 201;
     position: fixed;
     right: 250px;
@@ -113,10 +109,10 @@ a.loadButton {
     background-color: rgb(255, 255, 255); /* Цвет фона */
     padding: 1em 2em; /* Отступ от текста до рамки */
     }
-    a.loadButton:active {
+    button.loadButton:active {
     background-color: rgb(255, 0, 0); /* Цвет кнопки при нажатии */
     }
-    a.loadButton:hover {
+    button.loadButton:hover {
     background-color: rgb(255, 0, 0); /* Цвет кнопки при наведении курсора */
 }
 .footer {
