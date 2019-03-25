@@ -86,9 +86,6 @@ class postList{
         if(edit.hasOwnProperty('photoLink')){
             post.photoLink = edit.photoLink;
         };
-        if(edit.hasOwnProperty('tags')){
-            post.tags = edit.tags; 
-        };
         return true;
     }
     return false;
@@ -274,18 +271,12 @@ for (i = 0; i < 6; i++){
   console.log(main.getPage({},0,100));
   console.log('main.getPhotoPost(\'2\')');
   console.log(postList.validate(main.get('2')));
-  console.log('main.editPhotoPost(\'2\',{tags:[\'nature\',],})');
-  console.log(main.edit('2',{tags:['nature',],}));
   console.log('main.getPhotoPost(\'2\')');
   console.log(main.get('2'));
-  console.log('main.getPhotoPosts({tags: \'natuRe\',})');
-  console.log(main.getPage({tags: 'natuRe',}));
-  console.log('main.getPhotoPosts({tags: [\'natuRe\'],})');
-  console.log(main.getPage({tags: ['natuRe'],}));
   console.log('main.getPhotoPost(\'4\')');
   console.log(main.get('4'));
-  console.log('main.editPhotoPost(\'4\',{tags: [\'nice\',], description: \'like this moment\',})');
-  console.log(main.edit('4',{tags: ['nice',], description: 'like this moment',}));
+  console.log('main.editPhotoPost(\'4\',{description: \'_______________________\',})');
+  console.log(main.edit('4',{description: '_____________________',}));
   console.log('main.getPhotoPost(\'4\')');
   console.log(main.get('4'));
   console.log(main.addAll([{
