@@ -17,6 +17,139 @@ for(i = 0; i < 20; i++){
     photoPosts[i].author = 'Name';
 }
 
+class postList{
+
+  constructor(photoPosts){
+    this.photoPosts = photoPosts.filter(item => postList.validate(item));
+
+  }
+
+  static validate(photoPost) {
+    if (typeof(photoPost.id) != typeof('') || photoPost.id == null){
+        alert(0);
+        return false;
+    }
+    if (typeof(photoPost.descriprion) != typeof('') || photoPost.descriprion == null){
+        alert(1);
+        return false;
+    }
+    if (typeof(photoPost.photoLink) != typeof('') || photoPost.photoLink == null){
+        alert(2);
+        return false;
+    }
+    if (typeof(photoPost.author) != typeof('') || photoPost.author == null){
+        alert(3);
+        return false;
+    }
+    if (typeof(photoPost.Date) != typeof(new Date()) || photoPost.id == null){
+        alert(4);
+        return false;
+    }
+    return true;
+  
+  }
+
+
+  removePhotoPost(id) {
+    var i = 0;
+    for (; i < this.photoPosts.length; ++i) {
+      if (this.photoPosts[i].id == id) {
+        break;
+      }
+    }
+    if (i < this.photoPosts.length) {
+      this.photoPosts.splice(i, 1);
+    }
+  }
+  
+
+  add(post){
+    if(postList.validate(post)){
+      this.photoPosts.push(post);
+      return true;
+    }
+    return false;
+  }
+
+  addAll(postArray){
+    postArray.forEach(item => {
+      this.add(item);
+  });
+  }
+  
+  edit(id, edit){
+    let post = this.get(id);
+    if(post && postList.validateEdit(edit)){
+        if(edit.hasOwnProperty('description')){
+            post.description = edit.description;
+        };
+        if(edit.hasOwnProperty('photoLink')){
+            post.photoLink = edit.photoLink;
+        };
+        if(edit.hasOwnProperty('tags')){
+            post.tags = edit.tags; 
+        };
+        return true;
+    }
+    return false;
+}
+
+
+    static validateEdit(photoPost) {
+      if (typeof(photoPost.id) != typeof('') && photoPost.id == null){
+        alert(0);
+        return false;
+    }
+    if (typeof(photoPost.descriprion) != typeof('') && photoPost.descriprion == null){
+        alert(1);
+        return false;
+    }
+    if (typeof(photoPost.photoLink) != typeof('') && photoPost.photoLink == null){
+        alert(2);
+        return false;
+    }
+    if (typeof(photoPost.author) != typeof('') && photoPost.author == null){
+        alert(3);
+        return false;
+    }
+    if (typeof(photoPost.Date) != typeof(new Date()) && photoPost.id == null){
+        alert(4);
+        return false;
+    }
+    return true;
+  }
+
+  getPage(filterConfig, skip = 0, top = 10){
+    let result = this.photoPosts.slice(0, this.photoPosts.length);
+    if(filterConfig.hasOwnProperty('author')){
+        result = result.filter(item=>item.author === filterConfig.author);
+    }
+    if(filterConfig.hasOwnProperty('dateFrom') && filterConfig.dateFrom instanceof Date){
+        result = result.filter(item=>item.createdAt > filterConfig.dateFrom);
+    }
+    if(filterConfig.hasOwnProperty('dateTo') && filterConfig.dateTo instanceof Date){
+        result = result.filter(item=>item.createdAt < filterConfig.dateTo);
+    }
+    result.sort((item1,item2)=>item2.createdAt-item1.createdAt);
+    return result.splice(skip,top);
+  }
+
+  
+  get(id) {
+    for (i = 0; i < this.photoPosts.length; ++i) {
+      if (id == this.photoPosts[i].id) {
+        return this.photoPosts[i];
+      }
+    }
+    return null;
+  }
+}
+
+
+
+
+
+
 
 function validatePhotoPost(photoPost) {
     if (typeof(photoPost.id) != typeof('') || photoPost.id == null){
@@ -136,4 +269,33 @@ for (i = 0; i < 6; i++){
     }
   };
   
-  
+  let main = new postList(photoPosts);
+  console.log('main.getPhotoPosts({},0,100)');
+  console.log(main.getPage({},0,100));
+  console.log('main.getPhotoPost(\'2\')');
+  console.log(postList.validate(main.get('2')));
+  console.log('main.editPhotoPost(\'2\',{tags:[\'nature\',],})');
+  console.log(main.edit('2',{tags:['nature',],}));
+  console.log('main.getPhotoPost(\'2\')');
+  console.log(main.get('2'));
+  console.log('main.getPhotoPosts({tags: \'natuRe\',})');
+  console.log(main.getPage({tags: 'natuRe',}));
+  console.log('main.getPhotoPosts({tags: [\'natuRe\'],})');
+  console.log(main.getPage({tags: ['natuRe'],}));
+  console.log('main.getPhotoPost(\'4\')');
+  console.log(main.get('4'));
+  console.log('main.editPhotoPost(\'4\',{tags: [\'nice\',], description: \'like this moment\',})');
+  console.log(main.edit('4',{tags: ['nice',], description: 'like this moment',}));
+  console.log('main.getPhotoPost(\'4\')');
+  console.log(main.get('4'));
+  console.log(main.addAll([{
+    id: '11',
+    description: '',
+    createdAt: new Date('2019-01-01T14:00:00'),
+    author: 'Name',
+    photoLink: 'zerg-story-thumb.jpg',
+  },]));
+  console.log(main.getPage({},0,100));
+  console.log(main.removePhotoPost('2'));
+  console.log(main.get('2'));
+  console.log(main.getPage({},0,20));
