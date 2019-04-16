@@ -1,5 +1,5 @@
-html { overflow-y: scroll; overflow-x:hidden; }
-body{margin: 0px;}
+html { overflow-y: scroll; overflow-x:hidden; height: 100%;}
+body{margin: 0px; height: 100%;}
 .zerg_pic{
 width: 300px;
 height: 50px;
@@ -7,12 +7,21 @@ height: 50px;
 .header {
   background-color: rgb(100, 252, 255);
   height: 100px;
-  position: fixed;
   width: 1920px;
   margin: 0px;
    z-index: 200;
 }
-.header, .footer {
+.container{
+    height: calc(100% - 100px);
+    overflow-y : auto;
+}
+.form-wrap {
+  width: 550px;
+  background: #ffd500;
+  border-radius: 20px;
+}
+
+.footer {
   z-index: 200;
   position: fixed;
 }
@@ -68,7 +77,7 @@ height: 50px;
     word-wrap: break-word;
     width: 1000px;
 }
-button.Like {
+button.Delete {
 
 	user-select: none; /* Убираем текстовое выделение */
 	text-decoration: none;	/* Убираем подчеркивание */
@@ -76,16 +85,15 @@ button.Like {
 	background-color: rgb(100, 252, 255); /* Цвет фона */
 	padding: 1em 2em; /* Отступ от текста до рамки */
 	}
-	button.Like:active {
+	button.Delete:active {
 	background-color: rgb(100, 0, 255); /* Цвет кнопки при нажатии */
 	}
-	button.Like:hover {
+	button.Delete:hover {
 	background-color: rgb(100, 0, 255); /* Цвет кнопки при наведении курсора */
 	}
 button.More {
     position: relative;
     left: 100px;
-    bottom: 50px;
     user-select: none; /* Убираем текстовое выделение */
     text-decoration: none;	/* Убираем подчеркивание */
     outline: none; /* Убираем контур вокруг ссылки */
@@ -126,3 +134,51 @@ button.loadButton {
 .footerText{
   font-size: 12px;
 }
+
+
+.form-row {
+	margin-bottom: 8px;
+	margin-top: 22px;
+}
+.form-row input {
+	float: right;
+	height: 19px;
+	line-height: 19px;
+	margin: 0px;
+	padding: 0px 5px;
+	width: 287px;
+	border: 1px solid #ABADB3;
+}
+
+.reg-form {
+	width: 416px;
+	margin: 0 auto;
+}
+
+.form-row textarea {
+	height: 90px;
+    line-height: 16px;
+    font-size: 12px;
+    padding: 0px 5px;
+    width: 404px;
+    border: 1px solid #ABADB3;
+}
+
+.form-row input[type=submit] {
+	padding:5px;
+	height:25px;
+	width:100%;
+	line-height: 10px;
+	background: #337AB7;
+	color:white;
+}
+
+.form-row input[type=submit]:hover {
+	background:#286090;
+}
+
+* {
+	font-family:arial;
+	font-size:10pt;
+}
+

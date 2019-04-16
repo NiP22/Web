@@ -7,19 +7,56 @@
 </head>
 
 <body>
-<button class="loadButton">Load photo</button>
 
-<header class="header">
-    <img class="headerLogo" src="logo.webp" alt="icon">
-    <p class="pageName">SiteName</p>
-    <p class="userName">User Name</p>
-    <img class="userAvatar" src="zerg-story-thumb.jpg" alt="icon">
+<header class="header" id="header">
+
 </header>
-<article id='page'></article>
+<div class="container">
+    <form class='reg-form' id="registration" style="display: none;">
+        <div class='form-row'>
+            <label for='form_fname'>Login: </label>
+            <input type='text' id='form_fname' name='login' required>
+        </div>
+        <div class='form-row'>
+            <label for='form_password'>Password: </label>
+            <input type='password' id='form_password' name='password' required>
+        </div>
+        <div class="form-row">
+            <button class="More" onclick="return view.submit();">Submit</button>
+        </div>
+    </form>
+    <form class='reg-form' id="addPost" style="display: none;">
+        <div class='form-row'>
+            <label for='form_fname'>Description: </label>
+            <input type='text' id='description' name='description' required>
+        </div>
+        <div class='form-row'>
+            <label for='form_password'>Link: </label>
+            <input type='text' id='link' name='link' required>
+        </div>
+        <div class="form-row">
+            <button class="More" onclick="return view.addPost();">Add photo</button>
+        </div>
+    </form>
+    <form class='reg-form' id="editPost" style="display: none;">
+        <div class='form-row'>
+            <label for='form_fname'>Description: </label>
+            <input type='text' id='editDescription' name='description' required>
+        </div>
+        <div class='form-row'>
+            <label for='form_password'>Link: </label>
+            <input type='text' id='editLink' name='link' required>
+        </div>
+        <div class="form-row">
+            <button class="More" onclick="return view.saveEdit();">Edit photo</button>
+        </div>
+    </form>
+    <article id='page'>
+    </article>
+    <button id="loadMore" class="More" onclick="view.loadMore();">Load more</button>
+</div>
 
 <script src="./scripts.js"></script>
-<button class="More" onclick="loadMore();">Load more</button>
-
 </body>
 
 <footer class="footer">
