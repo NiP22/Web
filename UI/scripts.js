@@ -12,9 +12,18 @@ Users[1].name = "Obama";
 Users[1].password = "54321";
 Users[1].avatarLink = "obama.jpg";
 
-var shown = 0;
-var lastId = localStorage.getItem('count');
-for(i = 1; i <= lastId; i++){
+var lastId;
+if (localStorage.getItem('count') === null){
+  alert("sadsadsa00");
+  lastId = 0;
+  localStorage.setItem('count', 0);
+  var shown = 0;
+}
+else{
+  lastId = parseInt(localStorage.getItem('count'));
+  var shown = lastId % 10;
+}
+for(i = 0; i <= lastId; i++){
   var tmp = JSON.parse(localStorage.getItem(i + ''));
   if(tmp){
     photoPosts[i] = tmp;
@@ -97,7 +106,9 @@ class postList{
     if(postList.validate(post)){
       this.photoPosts.push(post);
       var serialObj = JSON.stringify(post); //сериализуем его
+      let tmp = parseInt(localStorage.getItem('count'));
       localStorage.setItem(post.id, serialObj); 
+      localStorage.setItem('count', tmp + 1);
       return true;
     }
     return false;
@@ -265,7 +276,7 @@ class View{
     addPost(){
       var description = document.getElementById("description").value;
       var link = document.getElementById("link").value;
-      lastId += 1;
+      lastId = parseInt(lastId) + 1;
       var post=  {};
       post.id = lastId + '';
       post.description = description;
@@ -275,6 +286,7 @@ class View{
       this.pL.add(post);
       document.getElementById("addPost").style.display = 'none';
       document.getElementById('loadMore').style.display = 'block';
+      location.reload();
       return false;
     }
     registration(){
